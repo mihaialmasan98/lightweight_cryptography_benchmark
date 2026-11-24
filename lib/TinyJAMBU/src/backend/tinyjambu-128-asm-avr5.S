@@ -1,0 +1,439 @@
+#include "tinyjambu-backend-select.h"
+#if defined(TINYJAMBU_BACKEND_AVR5)
+/*
+ * Copyright (C) 2022 Southern Storm Software, Pty Ltd.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included
+ * in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ */
+
+#include <avr/io.h>
+
+/*
+ * typedef struct {
+ *   uint32_t s[4]; // Words of the state in little-endian order.
+ *   uint32_t k[4]; // Words of the key in little-endian order.
+ * } tinyjambu_128_state_t;
+ *
+ * void tinyjambu_permutation_128
+ *      (tinyjambu_128_state_t *state, unsigned rounds);
+ */
+	.text
+.global tinyjambu_permutation_128
+	.type tinyjambu_permutation_128, @function
+tinyjambu_permutation_128:
+	push r2
+	push r3
+	push r4
+	push r5
+	push r6
+	push r7
+	push r8
+	push r9
+	push r10
+	push r11
+	push r12
+	push r13
+	push r14
+	push r15
+	push r16
+	push r17
+	movw r30,r24
+.L__stack_usage = 18
+	ld r18,Z
+	ldd r19,Z+1
+	ldd r20,Z+2
+	ldd r21,Z+3
+	ldd r26,Z+4
+	ldd r27,Z+5
+	ldd r2,Z+6
+	ldd r3,Z+7
+	ldd r4,Z+8
+	ldd r5,Z+9
+	ldd r6,Z+10
+	ldd r7,Z+11
+	ldd r8,Z+12
+	ldd r9,Z+13
+	ldd r10,Z+14
+	ldd r11,Z+15
+16:
+	movw r14,r2
+	movw r24,r4
+	mov r13,r27
+	lsl r13
+	rol r14
+	rol r15
+	rol r24
+	rol r25
+	eor r18,r14
+	eor r19,r15
+	eor r20,r24
+	eor r21,r25
+	movw r24,r4
+	movw r16,r6
+	mov r23,r8
+	lsl r24
+	rol r25
+	rol r16
+	rol r17
+	rol r23
+	lsl r24
+	rol r25
+	rol r16
+	rol r17
+	rol r23
+	movw r12,r6
+	movw r14,r8
+	mov r24,r10
+	lsl r12
+	rol r13
+	rol r14
+	rol r15
+	rol r24
+	lsl r12
+	rol r13
+	rol r14
+	rol r15
+	rol r24
+	lsl r12
+	rol r13
+	rol r14
+	rol r15
+	rol r24
+	and r25,r13
+	and r16,r14
+	and r17,r15
+	and r23,r24
+	eor r18,r25
+	eor r19,r16
+	eor r20,r17
+	eor r21,r23
+	movw r14,r8
+	movw r24,r10
+	mov r13,r7
+	lsr r25
+	ror r24
+	ror r15
+	ror r14
+	ror r13
+	lsr r25
+	ror r24
+	ror r15
+	ror r14
+	ror r13
+	lsr r25
+	ror r24
+	ror r15
+	ror r14
+	ror r13
+	eor r18,r13
+	eor r19,r14
+	eor r20,r15
+	eor r21,r24
+	ldd r0,Z+16
+	eor r18,r0
+	ldd r0,Z+17
+	eor r19,r0
+	ldd r0,Z+18
+	eor r20,r0
+	ldd r0,Z+19
+	eor r21,r0
+	movw r14,r6
+	movw r24,r8
+	mov r13,r5
+	lsl r13
+	rol r14
+	rol r15
+	rol r24
+	rol r25
+	eor r26,r14
+	eor r27,r15
+	eor r2,r24
+	eor r3,r25
+	movw r24,r8
+	movw r16,r10
+	mov r23,r18
+	lsl r24
+	rol r25
+	rol r16
+	rol r17
+	rol r23
+	lsl r24
+	rol r25
+	rol r16
+	rol r17
+	rol r23
+	movw r12,r10
+	movw r14,r18
+	mov r24,r20
+	lsl r12
+	rol r13
+	rol r14
+	rol r15
+	rol r24
+	lsl r12
+	rol r13
+	rol r14
+	rol r15
+	rol r24
+	lsl r12
+	rol r13
+	rol r14
+	rol r15
+	rol r24
+	and r25,r13
+	and r16,r14
+	and r17,r15
+	and r23,r24
+	eor r26,r25
+	eor r27,r16
+	eor r2,r17
+	eor r3,r23
+	movw r14,r18
+	movw r24,r20
+	mov r13,r11
+	lsr r25
+	ror r24
+	ror r15
+	ror r14
+	ror r13
+	lsr r25
+	ror r24
+	ror r15
+	ror r14
+	ror r13
+	lsr r25
+	ror r24
+	ror r15
+	ror r14
+	ror r13
+	eor r26,r13
+	eor r27,r14
+	eor r2,r15
+	eor r3,r24
+	ldd r0,Z+20
+	eor r26,r0
+	ldd r0,Z+21
+	eor r27,r0
+	ldd r0,Z+22
+	eor r2,r0
+	ldd r0,Z+23
+	eor r3,r0
+	movw r14,r10
+	movw r24,r18
+	mov r13,r9
+	lsl r13
+	rol r14
+	rol r15
+	rol r24
+	rol r25
+	eor r4,r14
+	eor r5,r15
+	eor r6,r24
+	eor r7,r25
+	movw r24,r18
+	movw r16,r20
+	mov r23,r26
+	lsl r24
+	rol r25
+	rol r16
+	rol r17
+	rol r23
+	lsl r24
+	rol r25
+	rol r16
+	rol r17
+	rol r23
+	movw r12,r20
+	movw r14,r26
+	mov r24,r2
+	lsl r12
+	rol r13
+	rol r14
+	rol r15
+	rol r24
+	lsl r12
+	rol r13
+	rol r14
+	rol r15
+	rol r24
+	lsl r12
+	rol r13
+	rol r14
+	rol r15
+	rol r24
+	and r25,r13
+	and r16,r14
+	and r17,r15
+	and r23,r24
+	eor r4,r25
+	eor r5,r16
+	eor r6,r17
+	eor r7,r23
+	movw r14,r26
+	movw r24,r2
+	mov r13,r21
+	lsr r25
+	ror r24
+	ror r15
+	ror r14
+	ror r13
+	lsr r25
+	ror r24
+	ror r15
+	ror r14
+	ror r13
+	lsr r25
+	ror r24
+	ror r15
+	ror r14
+	ror r13
+	eor r4,r13
+	eor r5,r14
+	eor r6,r15
+	eor r7,r24
+	ldd r0,Z+24
+	eor r4,r0
+	ldd r0,Z+25
+	eor r5,r0
+	ldd r0,Z+26
+	eor r6,r0
+	ldd r0,Z+27
+	eor r7,r0
+	movw r14,r20
+	movw r24,r26
+	mov r13,r19
+	lsl r13
+	rol r14
+	rol r15
+	rol r24
+	rol r25
+	eor r8,r14
+	eor r9,r15
+	eor r10,r24
+	eor r11,r25
+	movw r24,r26
+	movw r16,r2
+	mov r23,r4
+	lsl r24
+	rol r25
+	rol r16
+	rol r17
+	rol r23
+	lsl r24
+	rol r25
+	rol r16
+	rol r17
+	rol r23
+	movw r12,r2
+	movw r14,r4
+	mov r24,r6
+	lsl r12
+	rol r13
+	rol r14
+	rol r15
+	rol r24
+	lsl r12
+	rol r13
+	rol r14
+	rol r15
+	rol r24
+	lsl r12
+	rol r13
+	rol r14
+	rol r15
+	rol r24
+	and r25,r13
+	and r16,r14
+	and r17,r15
+	and r23,r24
+	eor r8,r25
+	eor r9,r16
+	eor r10,r17
+	eor r11,r23
+	movw r14,r4
+	movw r24,r6
+	mov r13,r3
+	lsr r25
+	ror r24
+	ror r15
+	ror r14
+	ror r13
+	lsr r25
+	ror r24
+	ror r15
+	ror r14
+	ror r13
+	lsr r25
+	ror r24
+	ror r15
+	ror r14
+	ror r13
+	eor r8,r13
+	eor r9,r14
+	eor r10,r15
+	eor r11,r24
+	ldd r0,Z+28
+	eor r8,r0
+	ldd r0,Z+29
+	eor r9,r0
+	ldd r0,Z+30
+	eor r10,r0
+	ldd r0,Z+31
+	eor r11,r0
+	dec r22
+	breq 5342f
+	rjmp 16b
+5342:
+343:
+	st Z,r18
+	std Z+1,r19
+	std Z+2,r20
+	std Z+3,r21
+	std Z+4,r26
+	std Z+5,r27
+	std Z+6,r2
+	std Z+7,r3
+	std Z+8,r4
+	std Z+9,r5
+	std Z+10,r6
+	std Z+11,r7
+	std Z+12,r8
+	std Z+13,r9
+	std Z+14,r10
+	std Z+15,r11
+	pop r17
+	pop r16
+	pop r15
+	pop r14
+	pop r13
+	pop r12
+	pop r11
+	pop r10
+	pop r9
+	pop r8
+	pop r7
+	pop r6
+	pop r5
+	pop r4
+	pop r3
+	pop r2
+	ret
+	.size tinyjambu_permutation_128, .-tinyjambu_permutation_128
+
+#endif
