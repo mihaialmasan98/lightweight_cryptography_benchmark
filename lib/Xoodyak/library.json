@@ -1,0 +1,22 @@
+{
+    "name": "Xoodyak",
+    "version": "0.1.0",
+    "keywords": "Xoodyak",
+    "license": "MIT",
+    "description": "Xoodyak from lwc-finalists mainline, commit 77b23e672543df736bdcc8577590e8957fe0c58c",
+    "homepage": "https://github.com/rweather/lwc-finalists/tree/77b23e672543df736bdcc8577590e8957fe0c58c/src/individual/Xoodyak",
+    "repository":
+    {
+        "type": "git",
+        "url": "https://github.com/rweather/lwc-finalists.git"
+    },
+    "authors":
+    [
+        {
+            "name": "Rhys Weatherley",
+            "email": "rhys.weatherley@gmail.com"
+        }
+    ],
+    "frameworks": "arduino",
+    "platforms": "*"
+}
