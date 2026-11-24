@@ -1,0 +1,19 @@
+{
+    "name": "ascon",
+    "version": "0.0.0",
+    "keywords": "ascon",
+    "license": "CC0-1.0",
+    "description": "Ascon-AEAD128 from ascon-c mainline, commit 446347f21b209f3921c65ece70027c366cbe1693",
+    "homepage": "https://github.com/ascon/ascon-c/tree/446347f21b209f3921c65ece70027c366cbe1693/crypto_aead/asconaead128",
+    "repository":
+    {
+        "type": "git",
+        "url": "https://github.com/ascon/ascon-c.git"
+    },
+    "frameworks": "arduino",
+    "platforms": "*",
+    "build": {
+        "srcDir": "avr",
+        "includeDir": "avr"
+    }
+}
