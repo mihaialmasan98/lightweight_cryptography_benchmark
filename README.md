@@ -1,0 +1,1 @@
+The benchmark code is licensed under the MIT License. Bundled third-party libraries retain their original licenses; see THIRD_PARTY_NOTICES.md and the license files in each library directory.
