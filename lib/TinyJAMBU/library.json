@@ -2,7 +2,9 @@
     "name": "TinyJAMBU",
     "version": "0.1.0",
     "keywords": "TinyJAMBU",
+    "license": "MIT",
     "description": "Suite of cryptographic primitives built around the TinyJAMBU permutation",
+    "homepage": "https://github.com/rweather/TinyJAMBU/tree/83ccf8e0e59d32347915a864bc441d7c900402c7",
     "repository":
     {
         "type": "git",
