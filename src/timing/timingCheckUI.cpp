@@ -79,7 +79,13 @@ void checkTiming(void)
     Serial.println(F("Arduino Uno / ATmega328P @ 16 MHz"));
 #if defined(USE_ASCON)
     Serial.println(F("\n=== Ascon-AEAD128 timing benchmark ==="));
+#if USE_ASCON_IMPL == 1
+    Serial.println(F("Implementation: ascon-c / opt8"));
+#elif USE_ASCON_IMPL == 2
     Serial.println(F("Implementation: ascon-c / avr"));
+#else
+    Serial.println(F("Implementation: ascon-c / impl?"));
+#endif
 #elif defined(USE_TINYJAMBU)
     Serial.println(F("\n=== TinyJAMBU timing benchmark ==="));
     Serial.println(F("Implementation: TinyJAMBU_128 / avr5"));

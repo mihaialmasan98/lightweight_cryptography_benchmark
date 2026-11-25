@@ -39,7 +39,13 @@ void checkHarness(void)
 #if USE_ASCON
     Serial.println(F("\n=== Ascon-AEAD128 / Arduino Uno ==="));
     Serial.println(F("NIST SP 800-232"));
+#if USE_ASCON_IMPL == 1
+    Serial.println(F("Implementation: ascon-c / opt8\n"));
+#elif USE_ASCON_IMPL == 2
     Serial.println(F("Implementation: ascon-c / avr\n"));
+#else
+    Serial.println(F("Implementation: ascon-c / impl?\n"));
+#endif
 #elif USE_TINYJAMBU
     Serial.println(F("\n=== TinyJAMBU_128 / Arduino Uno ==="));
     Serial.println(F("Implementation: avr5\n"));

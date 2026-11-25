@@ -73,7 +73,13 @@ void checkRAM(void)
     Serial.println(F("\n=== RAM measurement harness ==="));
 
 #if USE_ASCON
+#if USE_ASCON_IMPL == 1
+    Serial.println(F("Build: Ascon-AEAD128 / opt8"));
+#elif USE_ASCON_IMPL == 2
     Serial.println(F("Build: Ascon-AEAD128 / avr"));
+#else
+    Serial.println(F("Build: Ascon-AEAD128 / impl?"));
+#endif
 #elif USE_TINYJAMBU
     Serial.println(F("Build: TinyJAMBU_128 / avr5"));
 #elif USE_XOODYAC
